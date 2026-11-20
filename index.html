@@ -304,15 +304,23 @@
   .fp-route{height:2px; background:var(--line); border-radius:2px; margin:0 0 22px; overflow:hidden; position:relative;}
   .fp-route span{position:absolute; inset:0; width:30%; background:linear-gradient(90deg,transparent,var(--accent),transparent); animation:fpRun 3.2s linear infinite;}
   @keyframes fpRun{from{transform:translateX(-100%);} to{transform:translateX(400%);}}
-  .cty-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
-  .cty{display:flex; gap:14px; align-items:flex-start; text-align:left; background:var(--bg-card); border:1px solid var(--line); border-radius:16px; padding:18px; cursor:pointer; color:var(--ink); font-family:var(--font-body); transition:border-color .15s, transform .15s, box-shadow .15s;}
-  .cty:hover{border-color:var(--accent); transform:translateY(-4px); box-shadow:0 10px 30px -12px rgba(198,244,50,.25);}
-  .cty .flag{width:42px; height:28px; flex:none; border-radius:5px; box-shadow:0 0 0 1px rgba(255,255,255,.12); transition:transform .25s;}
-  .cty:hover .flag{transform:rotate(-6deg) scale(1.08);}
-  .cty-txt{display:flex; flex-direction:column; gap:3px;}
-  .cty-txt b{font-family:var(--font-display); font-size:1.08rem;}
-  .cty-txt em{font-style:normal; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--accent-soft);}
-  .cty-txt span{color:var(--ink-dim); font-size:.84rem; line-height:1.45;}
+  .cty-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:stretch;}
+  .cty{display:flex; flex-direction:column; gap:12px; text-align:left; background:var(--bg-card); border:1px solid var(--line); border-radius:16px; padding:20px; cursor:pointer; color:var(--ink); font-family:var(--font-body); height:100%; position:relative; overflow:hidden; transition:border-color .2s, transform .2s, box-shadow .2s;}
+  .cty::before{content:""; position:absolute; left:0; top:0; height:3px; width:0; background:var(--accent); transition:width .35s ease;}
+  .cty:hover{border-color:rgba(198,244,50,.55); transform:translateY(-4px); box-shadow:0 12px 30px -14px rgba(198,244,50,.28);}
+  .cty:hover::before{width:100%;}
+  .cty-top{display:flex; align-items:center; gap:12px;}
+  .cty-top .flag{width:40px; height:27px; flex:none; border-radius:5px; box-shadow:0 0 0 1px rgba(255,255,255,.12); transition:transform .25s;}
+  .cty:hover .cty-top .flag{transform:rotate(-6deg) scale(1.08);}
+  .cty-top b{display:block; font-family:var(--font-display); font-size:1.1rem; line-height:1.2;}
+  .cty-top em{font-style:normal; font-size:.68rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--accent-soft);}
+  .cty-n{margin-left:auto; font-family:var(--font-display); font-weight:800; font-size:1.3rem; color:var(--line); transition:color .2s;}
+  .cty:hover .cty-n{color:var(--accent);}
+  .cty-desc{color:var(--ink-dim); font-size:.85rem; line-height:1.5; min-height:2.6em;}
+  .cty-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:12px; border-top:1px dashed var(--line);}
+  .cty-tags i{font-style:normal; font-size:.73rem; color:var(--ink); background:var(--bg-raised); border:1px solid var(--line); border-radius:999px; padding:4px 10px; transition:border-color .15s, color .15s;}
+  .cty:hover .cty-tags i{border-color:rgba(198,244,50,.3);}
+  .cty-tags i:hover{color:var(--accent); border-color:var(--accent);}
   @media (max-width:900px){ .cty-grid{grid-template-columns:1fr 1fr;} }
   @media (max-width:560px){ .cty-grid{grid-template-columns:1fr;} }
   @media (prefers-reduced-motion:reduce){ .fp-route span{animation:none;} }
@@ -345,6 +353,8 @@
   .aw-actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:auto; padding-top:10px;}
   @media (max-width:980px){ .aw-grid{grid-template-columns:1fr 1fr;} }
   @media (max-width:600px){ .aw-grid{grid-template-columns:1fr;} }
+
+
 
   /* ============ Contact ============ */
   .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
@@ -775,12 +785,36 @@
       </div>
       <div class="fp-route" aria-hidden="true"><span></span></div>
       <div class="cty-grid">
-        <button class="cty" onclick="go('home','#education')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#006a4e"/><circle cx="13" cy="10" r="5.6" fill="#f42a41"/></svg><span class="cty-txt"><b>Bangladesh</b><em>Study · Research</em><span>B.Sc. (Hons.) &amp; M.S. Geography &amp; Environment, Jahangirnagar University; Dhaka urban heat &amp; green-space research</span></span></button>
-        <button class="cty" onclick="go('home','#education')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#dd0000"/><rect y="13.33" width="30" height="6.67" fill="#ffce00"/></svg><span class="cty-txt"><b>Germany</b><em>Study · Research · Work</em><span>M.Sc. Ecosystem Services (TU Dresden), M.Sc. Information Technology (HNEE Eberswalde); UNU-FLORES; LiDAR forestry</span></span></button>
-        <button class="cty" onclick="go('home','#research')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#dc143c"/></svg><span class="cty-txt"><b>Poland</b><em>Erasmus semester</em><span>SGGW Warsaw (2025): solar roof, timber-yard, Brodnicki network &amp; GNSS field research</span></span></button>
-        <button class="cty" onclick="go('home','#education')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#aa151b"/><rect y="5" width="30" height="10" fill="#f1bf00"/></svg><span class="cty-txt"><b>Spain</b><em>Erasmus+ BIP</em><span>Blended Intensive Programme, Universidad de Valladolid (2026)</span></span></button>
-        <button class="cty" onclick="go('home','#conferences')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#ed2939"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg><span class="cty-txt"><b>Austria</b><em>Conference · Oral</em><span>AGIT 2026, Salzburg — "Urban Hotspot Dynamics"</span></span></button>
-        <button class="cty" onclick="go('home','#conferences')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg><span class="cty-txt"><b>Italy</b><em>Conference · Poster</em><span>IEEE GRSS SYP Summit 2026, Naples — "Growing Cities, Rising Heat"</span></span></button>
+        <button class="cty" onclick="go('home','#education')">
+          <span class="cty-top"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#006a4e"/><circle cx="13" cy="10" r="5.6" fill="#f42a41"/></svg><span><b>Bangladesh</b><em>Foundations</em></span><span class="cty-n">01</span></span>
+          <span class="cty-desc">B.Sc. &amp; M.S. Geography &amp; Environment, Jahangirnagar University; broadcast journalism.</span>
+          <span class="cty-tags"><i>GIS Foundations</i><i>Urban &amp; Rural Development</i><i>Journalism</i><i>Economy &amp; Business</i><i>Environment</i><i>Policy Research</i></span>
+        </button>
+        <button class="cty" onclick="go('home','#education')">
+          <span class="cty-top"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#dd0000"/><rect y="13.33" width="30" height="6.67" fill="#ffce00"/></svg><span><b>Germany</b><em>Master’s · Research</em></span><span class="cty-n">02</span></span>
+          <span class="cty-desc">M.Sc. Ecosystem Services (TU Dresden), M.Sc. Information Technology (HNEE), UNU-FLORES.</span>
+          <span class="cty-tags"><i>Python &amp; R</i><i>PostGIS</i><i>Remote Sensing</i><i>Advanced LiDAR</i><i>Machine Learning</i><i>GIS in Forestry</i></span>
+        </button>
+        <button class="cty" onclick="go('home','#research')">
+          <span class="cty-top"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#dc143c"/></svg><span><b>Poland</b><em>Erasmus semester</em></span><span class="cty-n">03</span></span>
+          <span class="cty-desc">SGGW Warsaw, 2025: solar, site-suitability, network and GNSS field projects.</span>
+          <span class="cty-tags"><i>GIS Programming</i><i>Geodata Analysis</i><i>Spatial Data Analysis</i><i>Network Analysis</i><i>Map Editing</i></span>
+        </button>
+        <button class="cty" onclick="go('home','#education')">
+          <span class="cty-top"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#aa151b"/><rect y="5" width="30" height="10" fill="#f1bf00"/></svg><span><b>Spain</b><em>Erasmus+ BIP</em></span><span class="cty-n">04</span></span>
+          <span class="cty-desc">Blended Intensive Programme, Universidad de Valladolid, 2026.</span>
+          <span class="cty-tags"><i>Forest Fire</i><i>Climate Change</i><i>GIS Applications</i><i>R</i></span>
+        </button>
+        <button class="cty" onclick="go('home','#conferences')">
+          <span class="cty-top"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#ed2939"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg><span><b>Austria</b><em>Conference · Oral</em></span><span class="cty-n">05</span></span>
+          <span class="cty-desc">AGIT 2026, Salzburg: talk on urban hotspot dynamics.</span>
+          <span class="cty-tags"><i>Geoinformatics</i><i>Urban Hotspots</i><i>Surface Temperature</i><i>Oral Talk</i></span>
+        </button>
+        <button class="cty" onclick="go('home','#conferences')">
+          <span class="cty-top"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg><span><b>Italy</b><em>Conference · Poster</em></span><span class="cty-n">06</span></span>
+          <span class="cty-desc">IEEE GRSS SYP Summit 2026, Naples: urban heat poster.</span>
+          <span class="cty-tags"><i>Earth Observation</i><i>Urban Heat</i><i>IEEE GRSS</i><i>Poster</i></span>
+        </button>
       </div>
     </div>
   </section>
