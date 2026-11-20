@@ -3,7 +3,9 @@
 A modern, responsive, single-page portfolio for **Mahbubul Alam**, a full-stack developer (TypeScript, React, Next.js, Node.js) and geospatial researcher working on remote sensing, LiDAR and urban climate.
 
 **Live site:** https://delightful-gingersnap-cd02bd.netlify.app/
+
 **GitHub:** https://github.com/Mahbubenvit
+
 **LinkedIn:** https://www.linkedin.com/in/mahbubul-alam-7022b5a9
 
 ---
