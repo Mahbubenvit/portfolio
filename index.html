@@ -85,6 +85,9 @@
   .mobile-panel a{color:var(--ink-dim); text-decoration:none; padding:10px 4px; border-bottom:1px solid var(--line); font-size:.95rem;}
   .mobile-panel a:last-child{border-bottom:none;}
   .mobile-panel.open{display:flex;}
+  .brand{white-space:nowrap;}
+  @media (max-width:1400px){ nav.links a{padding:9px 9px; font-size:.86rem;} }
+  @media (max-width:1240px){ nav.links{display:none;} .burger{display:block;} .nav-cta{margin-left:auto; margin-right:10px;} .mobile-panel.open{display:flex;} }
 
   @media (max-width:980px){
     nav.links{display:none;}
@@ -244,6 +247,104 @@
   }
   .view-more:hover{color:var(--accent);}
   @media (max-width:760px){ .project-grid{grid-template-columns:1fr;} }
+
+
+  /* ============ Conferences ============ */
+  .conf-stats{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px;}
+  .conf-stats div{background:var(--bg-card); border:1px solid var(--line); border-radius:14px; padding:14px 20px; min-width:150px;}
+  .conf-stats b{display:block; font-family:var(--font-display); font-size:1.7rem; color:var(--accent);}
+  .conf-stats span{color:var(--ink-dim); font-size:.82rem;}
+  .conf-list{display:flex; flex-direction:column; gap:22px;}
+  .conf-card{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.25fr); background:var(--bg-card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; transition:border-color .15s, transform .15s;}
+  .conf-card:hover{border-color:var(--sage); transform:translateY(-3px);}
+  .conf-media{position:relative; min-height:260px; overflow:hidden; cursor:zoom-in; background:#0f1116;}
+  .conf-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform .5s ease;}
+  .conf-card:hover .conf-media img{transform:scale(1.04);}
+  .conf-media .pm-tag{position:absolute; top:12px; left:12px; z-index:2; background:rgba(21,21,22,.8); border:1px solid var(--line); color:var(--accent-soft); font-size:.72rem; padding:5px 10px; border-radius:999px; letter-spacing:.04em;}
+  .conf-body{padding:24px 26px; display:flex; flex-direction:column; gap:12px;}
+  .conf-event{font-size:.8rem; color:var(--accent-soft); letter-spacing:.06em; text-transform:uppercase; font-weight:600;}
+  .conf-meta{color:var(--ink-dim); font-size:.86rem;}
+  .conf-paper{border-left:2px solid var(--accent); padding:4px 0 4px 14px;}
+  .conf-paper h3{font-size:1.06rem; line-height:1.35; margin:0 0 4px;}
+  .conf-paper p{color:var(--ink-dim); font-size:.84rem; margin:0;}
+  .conf-role{display:inline-block; font-size:.7rem; font-weight:700; color:#151516; background:var(--accent); border-radius:999px; padding:3px 9px; margin-right:6px; vertical-align:middle;}
+  .conf-role.alt{background:var(--sage); color:#fff;}
+  .conf-actions{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; padding-top:6px;}
+  .chip-btn{display:inline-flex; align-items:center; gap:6px; font-size:.82rem; font-weight:600; color:var(--ink); background:transparent; border:1px solid var(--line); border-radius:999px; padding:8px 14px; cursor:pointer; text-decoration:none; font-family:var(--font-body); transition:border-color .15s,color .15s;}
+  .chip-btn:hover{border-color:var(--accent); color:var(--accent);}
+  .chip-btn.primary{background:var(--accent); color:#151516; border-color:var(--accent);}
+  .chip-btn.primary:hover{background:var(--accent-soft); color:#151516;}
+  .cert-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:28px;}
+  .cert-strip figure{margin:0; background:var(--bg-card); border:1px solid var(--line); border-radius:14px; overflow:hidden; cursor:zoom-in; transition:border-color .15s, transform .15s;}
+  .cert-strip figure:hover{border-color:var(--accent); transform:translateY(-3px);}
+  .cert-strip img{width:100%; aspect-ratio:1.414; object-fit:cover; display:block;}
+  .cert-strip figcaption{padding:10px 12px; font-size:.78rem; color:var(--ink-dim);}
+  .cert-strip figcaption b{display:block; color:var(--ink); font-size:.84rem;}
+  @media (max-width:860px){ .conf-card{grid-template-columns:1fr;} .conf-media{min-height:220px;} .cert-strip{grid-template-columns:1fr 1fr;} }
+
+
+  .pub-list{list-style:none; margin:0 0 34px; padding:0; display:flex; flex-direction:column; gap:12px; counter-reset:pub;}
+  .pub-item{display:grid; grid-template-columns:64px 1fr auto; gap:18px; align-items:center; background:var(--bg-card); border:1px solid var(--line); border-radius:14px; padding:18px 22px; transition:border-color .15s, transform .15s;}
+  .pub-item:hover{border-color:var(--accent); transform:translateX(4px);}
+  .pub-year{font-family:var(--font-display); font-weight:800; font-size:1.25rem; color:var(--accent);}
+  .pub-item h4{margin:0 0 4px; font-size:1rem; line-height:1.4; color:var(--ink);}
+  .pub-item p{margin:0; color:var(--ink-dim); font-size:.84rem;}
+  .pub-item p b{color:var(--ink); font-weight:600;}
+  .pub-type{display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--sage); margin-bottom:4px;}
+  .pub-links{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
+  .conf-sub{font-family:var(--font-display); font-size:1.2rem; margin:0 0 16px; color:var(--ink);}
+  @media (max-width:760px){ .pub-item{grid-template-columns:1fr; gap:8px;} .pub-links{justify-content:flex-start;} }
+
+
+  /* ============ Global footprint ============ */
+  .footprint{padding-top:70px; padding-bottom:70px;}
+  .fp-head{max-width:760px; margin-bottom:26px;}
+  .fp-head h2{margin:10px 0 12px;}
+  .fp-head .hl{color:var(--accent);}
+  .fp-route{height:2px; background:var(--line); border-radius:2px; margin:0 0 22px; overflow:hidden; position:relative;}
+  .fp-route span{position:absolute; inset:0; width:30%; background:linear-gradient(90deg,transparent,var(--accent),transparent); animation:fpRun 3.2s linear infinite;}
+  @keyframes fpRun{from{transform:translateX(-100%);} to{transform:translateX(400%);}}
+  .cty-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .cty{display:flex; gap:14px; align-items:flex-start; text-align:left; background:var(--bg-card); border:1px solid var(--line); border-radius:16px; padding:18px; cursor:pointer; color:var(--ink); font-family:var(--font-body); transition:border-color .15s, transform .15s, box-shadow .15s;}
+  .cty:hover{border-color:var(--accent); transform:translateY(-4px); box-shadow:0 10px 30px -12px rgba(198,244,50,.25);}
+  .cty .flag{width:42px; height:28px; flex:none; border-radius:5px; box-shadow:0 0 0 1px rgba(255,255,255,.12); transition:transform .25s;}
+  .cty:hover .flag{transform:rotate(-6deg) scale(1.08);}
+  .cty-txt{display:flex; flex-direction:column; gap:3px;}
+  .cty-txt b{font-family:var(--font-display); font-size:1.08rem;}
+  .cty-txt em{font-style:normal; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--accent-soft);}
+  .cty-txt span{color:var(--ink-dim); font-size:.84rem; line-height:1.45;}
+  @media (max-width:900px){ .cty-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .cty-grid{grid-template-columns:1fr;} }
+  @media (prefers-reduced-motion:reduce){ .fp-route span{animation:none;} }
+
+
+  /* ============ Awards & certificates ============ */
+  .aw-filter{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px;}
+  .aw-filter button{font-family:var(--font-body); font-size:.85rem; font-weight:600; color:var(--ink-dim); background:var(--bg-card); border:1px solid var(--line); border-radius:999px; padding:9px 16px; cursor:pointer; transition:.15s;}
+  .aw-filter button:hover{color:var(--ink); border-color:var(--sage);}
+  .aw-filter button.on{background:var(--accent); color:#151516; border-color:var(--accent);}
+  .aw-filter button i{font-style:normal; opacity:.7; margin-left:4px;}
+  .aw-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .aw-card{background:var(--bg-card); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; transition:border-color .15s, transform .15s, opacity .25s;}
+  .aw-card:hover{border-color:var(--accent); transform:translateY(-4px);}
+  .aw-card.hide{display:none;}
+  .aw-doc{position:relative; height:170px; background:#f4f4f2; overflow:hidden; cursor:zoom-in;}
+  .aw-doc img{width:100%; height:100%; object-fit:cover; object-position:top center; display:block; transition:transform .5s ease;}
+  .aw-card:hover .aw-doc img{transform:scale(1.05);}
+  .aw-doc .zoom{position:absolute; right:10px; bottom:10px; background:rgba(21,21,22,.82); color:var(--accent-soft); font-size:.72rem; font-weight:600; padding:5px 10px; border-radius:999px; opacity:0; transition:opacity .2s;}
+  .aw-card:hover .aw-doc .zoom{opacity:1;}
+  .aw-kind{position:absolute; top:10px; left:10px; font-size:.68rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:4px 9px; border-radius:999px; background:var(--accent); color:#151516;}
+  .aw-kind.cert{background:var(--sage); color:#fff;}
+  .aw-body{padding:16px 18px 18px; display:flex; flex-direction:column; gap:6px; flex:1;}
+  .aw-org{display:flex; align-items:center; gap:10px;}
+  .aw-mono{width:38px; height:38px; flex:none; border-radius:10px; display:grid; place-items:center; font-family:var(--font-display); font-weight:800; font-size:.66rem; letter-spacing:.02em; color:#fff; border:1px solid rgba(255,255,255,.12);}
+  .aw-org span{font-size:.78rem; color:var(--ink-dim); line-height:1.3;}
+  .aw-body h3{font-size:1.02rem; line-height:1.35; margin:6px 0 0;}
+  .aw-body p{color:var(--ink-dim); font-size:.83rem; margin:0;}
+  .aw-date{font-size:.76rem; color:var(--accent-soft); font-weight:600;}
+  .aw-actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:auto; padding-top:10px;}
+  @media (max-width:980px){ .aw-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .aw-grid{grid-template-columns:1fr;} }
 
   /* ============ Contact ============ */
   .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
@@ -574,11 +675,13 @@
       <a href="javascript:void(0)" onclick="go('home','#skills')">Skills</a>
       <a href="javascript:void(0)" onclick="go('home','#education')">Education</a>
       <a href="javascript:void(0)" onclick="go('home','#experience')">Experience</a>
-      <a href="javascript:void(0)" onclick="go('home','#projects')">Projects</a>
       <a href="javascript:void(0)" onclick="go('home','#research')">Research</a>
+      <a href="javascript:void(0)" onclick="go('home','#conferences')">Publications</a>
+      <a href="javascript:void(0)" onclick="go('home','#awards')">Awards</a>
+      <a href="javascript:void(0)" onclick="go('home','#projects')">Projects</a>
       <a href="javascript:void(0)" onclick="go('home','#contact')">Contact</a>
     </nav>
-    <a class="nav-cta" href="Mahbubul_Alam_Resume.pdf" download target="_blank" rel="noopener">
+    <a class="nav-cta" href="Mahbubul_Alam_Resume.pdf" target="_blank" rel="noopener">
       Resume ↗
     </a>
     <button class="burger" onclick="document.getElementById('mpanel').classList.toggle('open')" aria-label="Menu">☰</button>
@@ -589,8 +692,10 @@
     <a href="javascript:void(0)" onclick="go('home','#skills');document.getElementById('mpanel').classList.remove('open')">Skills</a>
     <a href="javascript:void(0)" onclick="go('home','#education');document.getElementById('mpanel').classList.remove('open')">Education</a>
     <a href="javascript:void(0)" onclick="go('home','#experience');document.getElementById('mpanel').classList.remove('open')">Experience</a>
-    <a href="javascript:void(0)" onclick="go('home','#projects');document.getElementById('mpanel').classList.remove('open')">Projects</a>
     <a href="javascript:void(0)" onclick="go('home','#research');document.getElementById('mpanel').classList.remove('open')">Research</a>
+    <a href="javascript:void(0)" onclick="go('home','#conferences');document.getElementById('mpanel').classList.remove('open')">Publications</a>
+    <a href="javascript:void(0)" onclick="go('home','#awards');document.getElementById('mpanel').classList.remove('open')">Awards</a>
+    <a href="javascript:void(0)" onclick="go('home','#projects');document.getElementById('mpanel').classList.remove('open')">Projects</a>
     <a href="javascript:void(0)" onclick="go('home','#contact');document.getElementById('mpanel').classList.remove('open')">Contact</a>
   </div>
 </header>
@@ -620,7 +725,7 @@
         <p class="designation"><span class="des-label">I'm a</span> <span id="typed">Full Stack Developer</span><span class="caret" aria-hidden="true"></span></p>
         <p class="role">I build full-stack web apps with <strong>TypeScript, React, Next.js and Node.js</strong>, and Python-driven geospatial tools for LiDAR and satellite data. Based in Dresden, Germany.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="Mahbubul_Alam_Resume.pdf" download target="_blank" rel="noopener">⬇ View / Download Resume</a>
+          <a class="btn btn-primary" href="Mahbubul_Alam_Resume.pdf" target="_blank" rel="noopener">⬇ View / Download Resume</a>
           <a class="btn btn-ghost" href="javascript:void(0)" onclick="go('home','#projects')">See Projects</a>
         </div>
         <div class="social-row">
@@ -637,7 +742,7 @@
       </div>
       <div class="portrait-wrap">
         <div class="stat-chip c1"><b>5+</b>yrs research</div>
-        <div class="stat-chip c2"><b>3</b>countries</div>
+        <div class="stat-chip c2"><b>6</b>countries</div>
         <div class="portrait-ring">
           <img src="hero.jpg" alt="Portrait of Mahbubul Alam" />
           <span class="ring-badge">Dresden, DE</span>
@@ -652,12 +757,33 @@
 
   <div class="stats">
     <div class="wrap stats-grid">
-      <div class="stat"><b class="tabnum"><span data-count="11">11</span>+</b><span>Projects built</span></div>
+      <div class="stat"><b class="tabnum"><span data-count="14">14</span>+</b><span>Projects built</span></div>
       <div class="stat"><b class="tabnum"><span data-count="5">5</span></b><span>Live web apps</span></div>
       <div class="stat"><b class="tabnum"><span data-count="12">12</span></b><span>Dev technologies</span></div>
-      <div class="stat"><b class="tabnum"><span data-count="3">3</span></b><span>Countries studied in</span></div>
+      <div class="stat"><b class="tabnum"><span data-count="6">6</span></b><span>Countries studied &amp; researched in</span></div>
     </div>
   </div>
+
+
+  <!-- GLOBAL FOOTPRINT -->
+  <section id="footprint" class="footprint">
+    <div class="wrap">
+      <div class="fp-head">
+        <span class="kicker">Global footprint</span>
+        <h2>Studied &amp; researched in <span class="hl">6 countries</span>.</h2>
+        <p class="section-intro">From fieldwork in Dhaka to LiDAR forests in Eberswalde, an Erasmus semester in Warsaw, a BIP in Valladolid and conference stages in Salzburg and Naples.</p>
+      </div>
+      <div class="fp-route" aria-hidden="true"><span></span></div>
+      <div class="cty-grid">
+        <button class="cty" onclick="go('home','#education')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#006a4e"/><circle cx="13" cy="10" r="5.6" fill="#f42a41"/></svg><span class="cty-txt"><b>Bangladesh</b><em>Study · Research</em><span>B.Sc. (Hons.) &amp; M.S. Geography &amp; Environment, Jahangirnagar University; Dhaka urban heat &amp; green-space research</span></span></button>
+        <button class="cty" onclick="go('home','#education')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#dd0000"/><rect y="13.33" width="30" height="6.67" fill="#ffce00"/></svg><span class="cty-txt"><b>Germany</b><em>Study · Research · Work</em><span>M.Sc. Ecosystem Services (TU Dresden), M.Sc. Information Technology (HNEE Eberswalde); UNU-FLORES; LiDAR forestry</span></span></button>
+        <button class="cty" onclick="go('home','#research')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#dc143c"/></svg><span class="cty-txt"><b>Poland</b><em>Erasmus semester</em><span>SGGW Warsaw (2025): solar roof, timber-yard, Brodnicki network &amp; GNSS field research</span></span></button>
+        <button class="cty" onclick="go('home','#education')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#aa151b"/><rect y="5" width="30" height="10" fill="#f1bf00"/></svg><span class="cty-txt"><b>Spain</b><em>Erasmus+ BIP</em><span>Blended Intensive Programme, Universidad de Valladolid (2026)</span></span></button>
+        <button class="cty" onclick="go('home','#conferences')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#ed2939"/><rect y="6.67" width="30" height="6.67" fill="#fff"/></svg><span class="cty-txt"><b>Austria</b><em>Conference · Oral</em><span>AGIT 2026, Salzburg — "Urban Hotspot Dynamics"</span></span></button>
+        <button class="cty" onclick="go('home','#conferences')"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg><span class="cty-txt"><b>Italy</b><em>Conference · Poster</em><span>IEEE GRSS SYP Summit 2026, Naples — "Growing Cities, Rising Heat"</span></span></button>
+      </div>
+    </div>
+  </section>
 
   <!-- ABOUT -->
   <section id="about">
@@ -674,7 +800,7 @@
           <p>That pulled me into a Master's in <strong>Ecosystem Services</strong> at TU Dresden, and then deep into the technical end of environmental science: Python, PostGIS, and the kind of geospatial engineering that turns satellite imagery and LiDAR point clouds into answers. Today I'm finishing a second Master's in <strong>Information Technology</strong> at HNEE, writing the scripts that process raster and vector geodata for forestry, biodiversity and urban-climate research.</p>
           <p>Programming started for me as a research tool and became the part of the work I like best. From Python scripts I moved into full-stack web development with <strong>TypeScript, React, Next.js and Node.js</strong>, and I now build and deploy complete web apps such as HandsTogether, Market Price and FitLog.</p>
           <p>What I enjoy most is the middle ground: taking a question a policymaker or ecologist actually cares about, and building the pipeline — in Python, QGIS, or a Leaflet map — that answers it with real numbers instead of guesses. I'm equally comfortable automating a messy geodatabase or presenting findings at an international conference.</p>
-          <p>Outside of work I'm usually still outdoors — hiking the forests around Eberswalde with a camera, following football, or tinkering with whatever new satellite dataset Google Earth Engine has just made public. I also keep a working B1 in German and native Bangla alongside fluent English, which comes in handy at conferences in three countries at once.</p>
+          <p>Outside of work I'm usually still outdoors — hiking the forests around Eberswalde with a camera, following football, or tinkering with whatever new satellite dataset Google Earth Engine has just made public. I also keep a working B1 in German and native Bangla alongside fluent English, which has come in handy while studying and researching across six countries: Bangladesh, Germany, Poland, Spain, Austria and Italy.</p>
         </div>
         <div class="pillar-list">
           <div class="pillar">
@@ -881,21 +1007,145 @@
     </div>
   </section>
 
-  <!-- WEB PROJECTS -->
-  <section id="projects">
+  <!-- AWARDS -->
+  <section id="awards">
     <div class="wrap">
       <div class="section-head">
         <div>
-          <span class="kicker">Projects</span>
-          <h2>React &amp; JavaScript builds.</h2>
+          <span class="kicker">Awards, scholarships &amp; certificates</span>
+          <h2>Recognised along the way.</h2>
         </div>
-        <p class="section-intro">Five deployed web apps, from a volunteer-events platform to a market-price tracker for Bangladesh. Each one is live; open a card for the write-up and links.</p>
+        <p class="section-intro">Competitive scholarships and mobility grants, research programmes and professional training. Open any card to view the original document.</p>
       </div>
-      <div class="project-grid" id="web-grid"></div>
+      <div class="aw-filter" role="tablist">
+        <button class="on" onclick="awFilter('all',this)">All<i>9</i></button>
+        <button onclick="awFilter('award',this)">Awards &amp; scholarships<i>4</i></button>
+        <button onclick="awFilter('cert',this)">Certificates<i>5</i></button>
+      </div>
+      <div class="aw-grid">
+        <article class="aw-card" data-k="award">
+          <div class="aw-doc" onclick="openShot('awards/deutschlandstipendium.jpg')">
+            <img src="awards/deutschlandstipendium.jpg" alt="Deutschlandstipendium" loading="lazy" style="object-position:center 20%">
+            <span class="aw-kind">Award</span><span class="zoom">⤢ View</span>
+          </div>
+          <div class="aw-body">
+            <div class="aw-org"><span class="aw-mono" style="background:#1d5fa8">DS</span><span>HNEE · Federal Ministry (BMFTR)</span></div>
+            <h3>Deutschlandstipendium</h3>
+            <span class="aw-date">From September 2026</span>
+            <p>Merit scholarship for high-achieving students at Eberswalde University for Sustainable Development.</p>
+            <div class="aw-actions"><button class="chip-btn primary" onclick="openShot('awards/deutschlandstipendium.jpg')">View award</button></div>
+          </div>
+        </article>
+        <article class="aw-card" data-k="award">
+          <div class="aw-doc" onclick="openShot('awards/daad-scholarship.jpg')">
+            <img src="awards/daad-scholarship.jpg" alt="DAAD Scholarship" loading="lazy" style="object-position:top">
+            <span class="aw-kind">Award</span><span class="zoom">⤢ View</span>
+          </div>
+          <div class="aw-body">
+            <div class="aw-org"><span class="aw-mono" style="background:#0d5aa7">DAAD</span><span>HNEE · German Academic Exchange Service</span></div>
+            <h3>DAAD Scholarship</h3>
+            <span class="aw-date">HNEE scholarship agreement</span>
+            <p>Scholarship agreement between HNEE and Mahbubul Alam, funded by the DAAD.</p>
+            <div class="aw-actions"><button class="chip-btn primary" onclick="openShot('awards/daad-scholarship.jpg')">View award</button></div>
+          </div>
+        </article>
+        <article class="aw-card" data-k="award">
+          <div class="aw-doc" onclick="openShot('awards/erasmus-2024.jpg')">
+            <img src="awards/erasmus-2024.jpg" alt="Erasmus+ Mobility Grant 2024/25" loading="lazy" style="object-position:top">
+            <span class="aw-kind">Award</span><span class="zoom">⤢ View</span>
+          </div>
+          <div class="aw-body">
+            <div class="aw-org"><span class="aw-mono" style="background:#003399">EU</span><span>European Commission · HNEE</span></div>
+            <h3>Erasmus+ Mobility Grant 2024/25</h3>
+            <span class="aw-date">Academic year 2024/25</span>
+            <p>Erasmus+ grant (KA131) for a study mobility semester abroad.</p>
+            <div class="aw-actions"><button class="chip-btn primary" onclick="openShot('awards/erasmus-2024.jpg')">View award</button></div>
+          </div>
+        </article>
+        <article class="aw-card" data-k="award">
+          <div class="aw-doc" onclick="openShot('awards/erasmus-2025.jpg')">
+            <img src="awards/erasmus-2025.jpg" alt="Erasmus+ Mobility Grant 2025" loading="lazy" style="object-position:top">
+            <span class="aw-kind">Award</span><span class="zoom">⤢ View</span>
+          </div>
+          <div class="aw-body">
+            <div class="aw-org"><span class="aw-mono" style="background:#003399">EU</span><span>European Commission · HNEE</span></div>
+            <h3>Erasmus+ Mobility Grant 2025</h3>
+            <span class="aw-date">2025 call</span>
+            <p>Erasmus+ participant grant (KA131) for mobility of individuals in higher education.</p>
+            <div class="aw-actions"><button class="chip-btn primary" onclick="openShot('awards/erasmus-2025.jpg')">View award</button></div>
+          </div>
+        </article>
+        <article class="aw-card" data-k="cert">
+          <div class="aw-doc" onclick="openShot('awards/unu-flores.jpg')">
+            <img src="awards/unu-flores.jpg" alt="Joint Junior Researcher Programme" loading="lazy" style="object-position:top">
+            <span class="aw-kind cert">Certificate</span><span class="zoom">⤢ View</span>
+          </div>
+          <div class="aw-body">
+            <div class="aw-org"><span class="aw-mono" style="background:#2b6cb0">UNU</span><span>United Nations University (UNU-FLORES) · TU Dresden</span></div>
+            <h3>Joint Junior Researcher Programme</h3>
+            <span class="aw-date">Dec 2021 – Nov 2022</span>
+            <p>Certificate of completion for a master’s thesis carried out jointly with UNU-FLORES and TU Dresden.</p>
+            <div class="aw-actions"><button class="chip-btn primary" onclick="openShot('awards/unu-flores.jpg')">View certificate</button></div>
+          </div>
+        </article>
+        <article class="aw-card" data-k="cert">
+          <div class="aw-doc" onclick="openShot('awards/tud-msc.jpg')">
+            <img src="awards/tud-msc.jpg" alt="Master of Science — Ecosystem Services" loading="lazy" style="object-position:top">
+            <span class="aw-kind cert">Certificate</span><span class="zoom">⤢ View</span>
+          </div>
+          <div class="aw-body">
+            <div class="aw-org"><span class="aw-mono" style="background:#00305e">TUD</span><span>Technische Universität Dresden · IHI Zittau</span></div>
+            <h3>Master of Science — Ecosystem Services</h3>
+            <span class="aw-date">Degree certificate</span>
+            <p>Master’s degree certificate, M.Sc. Ecosystem Services.</p>
+            <div class="aw-actions"><button class="chip-btn primary" onclick="openShot('awards/tud-msc.jpg')">View certificate</button></div>
+          </div>
+        </article>
+        <article class="aw-card" data-k="cert">
+          <div class="aw-doc" onclick="openShot('awards/ufz-internship.jpg')">
+            <img src="awards/ufz-internship.jpg" alt="Research Internship — Floodplain Ecology" loading="lazy" style="object-position:top">
+            <span class="aw-kind cert">Certificate</span><span class="zoom">⤢ View</span>
+          </div>
+          <div class="aw-body">
+            <div class="aw-org"><span class="aw-mono" style="background:#0067b1">UFZ</span><span>Helmholtz Centre for Environmental Research – UFZ, Leipzig</span></div>
+            <h3>Research Internship — Floodplain Ecology</h3>
+            <span class="aw-date">31 Aug – 11 Oct 2020</span>
+            <p>ElBiota project on the Elbe floodplain: fieldwork, Trimble TSC3 plot mapping, carabid and soil sampling, ArcMap, R and Python analysis.</p>
+            <div class="aw-actions"><button class="chip-btn primary" onclick="openShot('awards/ufz-internship.jpg')">View certificate</button></div>
+          </div>
+        </article>
+        <article class="aw-card" data-k="cert">
+          <div class="aw-doc" onclick="openShot('awards/sap-s4hana.jpg')">
+            <img src="awards/sap-s4hana.jpg" alt="ERP with SAP S/4HANA (TS410)" loading="lazy" style="object-position:top">
+            <span class="aw-kind cert">Certificate</span><span class="zoom">⤢ View</span>
+          </div>
+          <div class="aw-body">
+            <div class="aw-org"><span class="aw-mono" style="background:#0a6ed1">SAP</span><span>TH Brandenburg · SAP University Alliances</span></div>
+            <h3>ERP with SAP S/4HANA (TS410)</h3>
+            <span class="aw-date">Spring term 2024</span>
+            <p>Course certificate of performance, Department of Business and Management.</p>
+            <div class="aw-actions"><button class="chip-btn primary" onclick="openShot('awards/sap-s4hana.jpg')">View certificate</button><a class="chip-btn" href="https://e-zertifikat.th-brandenburg.de/gyvau-ifguf-adbes-cahaf-ycaba" target="_blank" rel="noopener">Verify online ↗</a></div>
+          </div>
+        </article>
+        <article class="aw-card" data-k="cert">
+          <div class="aw-doc" onclick="openShot('awards/esri-mooc.jpg')">
+            <img src="awards/esri-mooc.jpg" alt="Make an Impact with Modern Geo Apps" loading="lazy" style="object-position:top">
+            <span class="aw-kind cert">Certificate</span><span class="zoom">⤢ View</span>
+          </div>
+          <div class="aw-body">
+            <div class="aw-org"><span class="aw-mono" style="background:#0079c1">esri</span><span>Esri Training</span></div>
+            <h3>Make an Impact with Modern Geo Apps</h3>
+            <span class="aw-date">Completed 2 May 2025</span>
+            <p>4-week massive open online course (MOOC) on building modern geo apps.</p>
+            <div class="aw-actions"><button class="chip-btn primary" onclick="openShot('awards/esri-mooc.jpg')">View certificate</button></div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- WEB PROJECTS -->
+  <!-- RESEARCH -->
   <section id="research">
     <div class="wrap">
       <div class="section-head">
@@ -903,7 +1153,7 @@
           <span class="kicker">Research projects</span>
           <h2>Selected geospatial work.</h2>
         </div>
-        <p class="section-intro">Four research-driven builds spanning urban climate, LiDAR forestry and site-suitability modelling. Open a project for the full write-up.</p>
+        <p class="section-intro">Nine research projects spanning urban climate, LiDAR forestry, solar and site-suitability modelling, network analysis and GNSS field survey. Open a project for the full write-up.</p>
       </div>
       <div class="project-grid">
 
@@ -945,28 +1195,15 @@
 
         <!-- Project 3 -->
         <div class="project-card">
-          <div class="project-media" style="background:linear-gradient(135deg,#102418,#1a3a28);">
-            <span class="pm-tag">Urban GIS · Published</span>
-            <svg viewBox="0 0 400 200">
-              <rect width="400" height="200" fill="#0d1f16"/>
-              <g stroke="#5b8def" stroke-opacity=".6" fill="none" stroke-width="1.5">
-                <path d="M30 170 Q150 60 220 150 Q280 100 370 140"/>
-                <circle cx="30" cy="170" r="5" fill="#c6f432" stroke="none"/>
-                <circle cx="150" cy="95" r="5" fill="#c6f432" stroke="none"/>
-                <circle cx="220" cy="150" r="5" fill="#c6f432" stroke="none"/>
-                <circle cx="280" cy="100" r="5" fill="#c6f432" stroke="none"/>
-                <circle cx="370" cy="140" r="5" fill="#c6f432" stroke="none"/>
-              </g>
-              <g fill="#d6f96a" opacity=".9">
-                <circle cx="100" cy="60" r="3"/><circle cx="190" cy="40" r="3"/><circle cx="310" cy="60" r="3"/>
-              </g>
-            </svg>
+          <div class="project-media">
+            <span class="pm-tag">Peer-reviewed · JGIS 2023</span>
+            <img src="gis/ugs-accessibility.jpg" alt="Urban green space accessibility map of Dhaka with 500 m buffers" loading="lazy" style="object-position:center">
           </div>
           <div class="project-body">
-            <h3>Urban Green-Space Accessibility</h3>
-            <p>GIS-based network analysis identifying the distribution and accessibility of urban green space across Dhaka Metropolitan City — published in the Journal of Geographic Information System.</p>
+            <h3>Urban Green-Space Distribution &amp; Accessibility, Dhaka</h3>
+            <p>Landsat-based mapping of urban green space across Dhaka and 500 m accessibility analysis for 401,407 buildings — published in the Journal of Geographic Information System (2023).</p>
             <div class="project-stack">
-              <span class="tag">QGIS</span><span class="tag">Network Analysis</span><span class="tag">Python</span>
+              <span class="tag">Landsat</span><span class="tag">ArcGIS</span><span class="tag">ENVI</span><span class="tag">Buffer Analysis</span>
             </div>
             <div class="project-foot">
               <button class="view-more" onclick="go('project-greenspace')">View details →</button>
@@ -976,31 +1213,69 @@
 
         <!-- Project 4 -->
         <div class="project-card">
-          <div class="project-media" style="background:linear-gradient(135deg,#241806,#3a2a0c);">
-            <span class="pm-tag">Suitability Modelling</span>
-            <svg viewBox="0 0 400 200">
-              <rect width="400" height="200" fill="#1f1708"/>
-              <g>
-                <circle cx="200" cy="100" r="70" fill="none" stroke="#c6f432" stroke-opacity=".5" stroke-width="2"/>
-                <circle cx="200" cy="100" r="46" fill="none" stroke="#c6f432" stroke-opacity=".7" stroke-width="2"/>
-                <circle cx="200" cy="100" r="22" fill="#d6f96a" opacity=".9"/>
-                <g stroke="#d6f96a" stroke-width="2">
-                  <line x1="200" y1="10" x2="200" y2="28"/>
-                  <line x1="200" y1="172" x2="200" y2="190"/>
-                  <line x1="110" y1="100" x2="128" y2="100"/>
-                  <line x1="272" y1="100" x2="290" y2="100"/>
-                </g>
-              </g>
-            </svg>
+          <div class="project-media">
+            <span class="pm-tag">Solar Modelling</span>
+            <img src="gis/solar-bialoleka.jpg" alt="Solar roof analysis map, Białołęka, Warsaw" loading="lazy">
           </div>
           <div class="project-body">
-            <h3>Solar Site Suitability Analysis</h3>
-            <p>Comparative solar-radiation analysis to identify the optimal location for solar-panel installation in the Białołęka district, Poland.</p>
+            <h3>Comparative Solar Roof Analysis</h3>
+            <p>Roof-level solar analysis ranking three rooftops in Białołęka, Warsaw — 189 panels, ~165 MWh/yr potential output.</p>
             <div class="project-stack">
               <span class="tag">QGIS</span><span class="tag">Spatial Analysis</span><span class="tag">Solar Modelling</span>
             </div>
             <div class="project-foot">
               <button class="view-more" onclick="go('project-solar')">View details →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-media">
+            <span class="pm-tag">Network Analysis</span>
+            <img src="gis/brodnicki-mapping.jpg" alt="Spatial mapping of the Brodnicki sub-district" loading="lazy">
+          </div>
+          <div class="project-body">
+            <h3>Brodnicki Spatial Mapping & Network Analysis</h3>
+            <p>Land cover, DSM, Natura 2000 and closest-facility fire-response routing for the Brodnicki sub-district, Poland.</p>
+            <div class="project-stack">
+              <span class="tag">QGIS</span><span class="tag">Corine Land Cover</span><span class="tag">Network Analysis</span>
+            </div>
+            <div class="project-foot">
+              <button class="view-more" onclick="go('project-brodnicki')">View details →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-media">
+            <span class="pm-tag">Site Suitability</span>
+            <img src="gis/timber-yard.jpg" alt="Timber yard suitability map near Woroszyły" loading="lazy">
+          </div>
+          <div class="project-body">
+            <h3>Timber Yard Site Selection</h3>
+            <p>Multi-criteria suitability search for a timber yard near Woroszyły — road access, 3.2 km drive limit and flood-safe elevation.</p>
+            <div class="project-stack">
+              <span class="tag">QGIS</span><span class="tag">Suitability Analysis</span><span class="tag">Flood Zoning</span>
+            </div>
+            <div class="project-foot">
+              <button class="view-more" onclick="go('project-timber')">View details →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-media">
+            <span class="pm-tag">Field Survey</span>
+            <img src="gis/gnss-accuracy.jpg" alt="GNSS receiver positional accuracy poster" loading="lazy">
+          </div>
+          <div class="project-body">
+            <h3>GNSS Receiver Accuracy Assessment</h3>
+            <p>Field comparison of a mobile GNSS receiver against a Stonex receiver under varying forest canopy cover, central Poland.</p>
+            <div class="project-stack">
+              <span class="tag">GNSS</span><span class="tag">Field Survey</span><span class="tag">Accuracy Assessment</span>
+            </div>
+            <div class="project-foot">
+              <button class="view-more" onclick="go('project-gnss')">View details →</button>
             </div>
           </div>
         </div>
@@ -1040,6 +1315,86 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- CONFERENCES -->
+  <section id="conferences">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Publications &amp; conferences</span>
+          <h2>Published and presented.</h2>
+        </div>
+        <p class="section-intro">A peer-reviewed journal article and conference papers on urban heat, green space and precision agriculture, presented orally and as posters at international remote-sensing and geoinformatics conferences.</p>
+      </div>
+      <h3 class="conf-sub">Publications</h3>
+      <ol class="pub-list">
+        <li class="pub-item"><span class="pub-year">2026</span><div><span class="pub-type">Conference paper · Oral</span><h4>Urban Morphology as a Driver of Surface Thermal Patterns: A Multi-Sensor Remote Sensing Assessment (2014–2024)</h4><p><b>Mahbubul Alam</b>, Jan-Peter Mund · Proceedings of the 6th International Electronic Conference on Remote Sensing (ECRS-6), 19–21 Oct 2026, MDPI, Basel</p></div><div class="pub-links"><a class="chip-btn primary" href="https://sciforum.net/paper/34645" target="_blank" rel="noopener">Read ↗</a></div></li>
+        <li class="pub-item"><span class="pub-year">2026</span><div><span class="pub-type">Conference paper · Poster</span><h4>Sparse-Sample Reconstruction of Crop Vigor Using Sentinel-2 NDVI: A Preliminary Benchmark of IDW and Kriging for Precision Agriculture</h4><p><b>Mahbubul Alam</b>, Abdullah All Mamun · Proceedings of the 6th International Electronic Conference on Remote Sensing (ECRS-6), 19–21 Oct 2026, MDPI, Basel</p></div><div class="pub-links"><a class="chip-btn primary" href="https://sciforum.net/paper/34516" target="_blank" rel="noopener">Read ↗</a></div></li>
+        <li class="pub-item"><span class="pub-year">2026</span><div><span class="pub-type">Conference paper · Oral</span><h4>Urban Hotspot Dynamics</h4><p><b>Mahbubul Alam</b>, Gulam Mohiuddin, Jan-Peter Mund · AGIT 2026 – Conference for Geoinformatics, Salzburg, Austria</p></div><div class="pub-links"><a class="chip-btn primary" href="https://eplus.uni-salzburg.at/agit/download/pdf/14146135" target="_blank" rel="noopener">PDF ↗</a></div></li>
+        <li class="pub-item"><span class="pub-year">2023</span><div><span class="pub-type">Journal article · Peer-reviewed</span><h4>GIS-Based Analysis to Identify the Distribution and Accessibility of Urban Green Space in Dhaka Metropolitan City, Bangladesh</h4><p>Mohammad Wahidur Khan, Md. Sazzad Hossain, <b>Mahbubul Alam</b> · <i>Journal of Geographic Information System</i>, 15(1), 35–52 · doi:10.4236/jgis.2023.151003</p></div><div class="pub-links"><a class="chip-btn primary" href="https://doi.org/10.4236/jgis.2023.151003" target="_blank" rel="noopener">DOI ↗</a><a class="chip-btn primary" href="https://www.scirp.org/pdf/jgis_2023021014112367.pdf" target="_blank" rel="noopener">PDF ↗</a><button class="chip-btn" onclick="openShot('gis/ugs-accessibility.jpg')">Map</button></div></li>
+      </ol>
+      <h3 class="conf-sub">Conference presentations</h3>
+      <div class="conf-stats">
+        <div><b>3</b><span>International conferences</span></div>
+        <div><b>2</b><span>Oral presentations</span></div>
+        <div><b>2</b><span>Poster presentations</span></div>
+        <div><b>4</b><span>Publications</span></div>
+      </div>
+      <div class="conf-list">
+        <article class="conf-card">
+          <div class="conf-media" onclick="openShot('conf/ecrs-slides.jpg')">
+            <span class="pm-tag">MDPI · Online</span>
+            <img src="conf/ecrs-slides.jpg" style="object-position:left center" alt="6th International Electronic Conference on Remote Sensing (ECRS-6)" loading="lazy">
+          </div>
+          <div class="conf-body">
+            <span class="conf-event">6th International Electronic Conference on Remote Sensing (ECRS-6)</span>
+            <span class="conf-meta">MDPI Remote Sensing · 19–21 October 2026 · Online</span>
+            <div class="conf-paper"><h3><span class="conf-role">Oral</span>Urban Morphology as a Driver of Surface Thermal Patterns: A Multi-Sensor Remote Sensing Assessment (2014–2024)</h3><p>Mahbubul Alam, Jan-Peter Mund · Proceedings of ECRS-6, MDPI, Basel</p></div><div class="conf-paper"><h3><span class="conf-role alt">Poster</span>Sparse-Sample Reconstruction of Crop Vigor Using Sentinel-2 NDVI: A Preliminary Benchmark of IDW and Kriging for Precision Agriculture</h3><p>Mahbubul Alam, Abdullah All Mamun · Proceedings of ECRS-6, MDPI, Basel</p></div>
+            <div class="conf-actions"><a class="chip-btn primary" href="https://sciforum.net/paper/34645" target="_blank" rel="noopener">Oral paper ↗</a><a class="chip-btn primary" href="https://sciforum.net/paper/34516" target="_blank" rel="noopener">Poster paper ↗</a><button class="chip-btn" onclick="openShot('conf/ecrs-poster.jpg')">View poster</button><button class="chip-btn" onclick="openShot('conf/ecrs-oral.jpg')">Oral certificate</button><button class="chip-btn" onclick="openShot('conf/ecrs-poster-cert.jpg')">Poster certificate</button></div>
+          </div>
+        </article>
+        <article class="conf-card">
+          <div class="conf-media" onclick="openShot('conf/agit-talk.jpg')">
+            <span class="pm-tag">Salzburg · Austria</span>
+            <img src="conf/agit-talk.jpg" alt="AGIT 2026 — Conference for Geoinformatics" loading="lazy">
+          </div>
+          <div class="conf-body">
+            <span class="conf-event">AGIT 2026 — Conference for Geoinformatics</span>
+            <span class="conf-meta">Z_GIS, University of Salzburg · 8 July 2026 · Salzburg, Austria</span>
+            <div class="conf-paper"><h3><span class="conf-role">Oral</span>Urban Hotspot Dynamics</h3><p>Mahbubul Alam, Gulam Mohiuddin, Jan-Peter Mund</p></div>
+            <div class="conf-actions"><a class="chip-btn primary" href="https://eplus.uni-salzburg.at/agit/download/pdf/14146135" target="_blank" rel="noopener">Read paper ↗</a><button class="chip-btn" onclick="openShot('conf/agit-talk.jpg')">Talk photo</button></div>
+          </div>
+        </article>
+        <article class="conf-card">
+          <div class="conf-media" onclick="openShot('conf/ieee-syp-photo.jpg')">
+            <span class="pm-tag">Naples · Italy</span>
+            <img src="conf/ieee-syp-photo.jpg" alt="IEEE GRSS Student &amp; Young Professionals (SYP) Summit 2026" loading="lazy">
+          </div>
+          <div class="conf-body">
+            <span class="conf-event">IEEE GRSS Student &amp; Young Professionals (SYP) Summit 2026</span>
+            <span class="conf-meta">IEEE Geoscience and Remote Sensing Society · 14–15 November 2026 · Naples, Italy</span>
+            <div class="conf-paper"><h3><span class="conf-role alt">Poster</span>Growing Cities, Rising Heat — Urban morphology as a driver of surface thermal patterns: a decade of Earth observation over Dhaka</h3><p>Mahbubul Alam, Jan-Peter Mund · Poster 005</p></div>
+            <div class="conf-actions"><button class="chip-btn" onclick="openShot('conf/ieee-syp-photo.jpg')">Event photo</button><button class="chip-btn" onclick="openShot('conf/ieee-syp-cert.jpg')">Attendance certificate</button></div>
+          </div>
+        </article>
+      </div>
+      <div class="cert-strip"><figure onclick="openShot('conf/ecrs-oral.jpg')"><img src="conf/ecrs-oral.jpg" alt="Oral Presenter certificate" loading="lazy"><figcaption><b>Oral Presenter</b>ECRS-6 · MDPI</figcaption></figure><figure onclick="openShot('conf/ecrs-poster-cert.jpg')"><img src="conf/ecrs-poster-cert.jpg" alt="Poster Presenter certificate" loading="lazy"><figcaption><b>Poster Presenter</b>ECRS-6 · MDPI</figcaption></figure><figure onclick="openShot('conf/ecrs-participation.jpg')"><img src="conf/ecrs-participation.jpg" alt="Participation certificate" loading="lazy"><figcaption><b>Participation</b>ECRS-6 · MDPI</figcaption></figure><figure onclick="openShot('conf/ieee-syp-cert.jpg')"><img src="conf/ieee-syp-cert.jpg" alt="Attendance certificate" loading="lazy"><figcaption><b>Attendance</b>IEEE GRSS SYP 2026</figcaption></figure></div>
+    </div>
+  </section>
+
+  <!-- WEB PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Projects</span>
+          <h2>React &amp; JavaScript builds.</h2>
+        </div>
+        <p class="section-intro">Five deployed web apps, from a volunteer-events platform to a market-price tracker for Bangladesh. Each one is live; open a card for the write-up and links.</p>
+      </div>
+      <div class="project-grid" id="web-grid"></div>
     </div>
   </section>
 
@@ -1109,7 +1464,7 @@
     </div>
     <div>
       <h4 class="ft-h">Explore</h4>
-      <nav class="ft-links"><a href="javascript:void(0)" onclick="go('home')">Home</a><a href="javascript:void(0)" onclick="go('home', '#about')">About</a><a href="javascript:void(0)" onclick="go('home', '#skills')">Skills</a><a href="javascript:void(0)" onclick="go('home', '#services')">Services</a><a href="javascript:void(0)" onclick="go('home', '#education')">Education</a><a href="javascript:void(0)" onclick="go('home', '#experience')">Experience</a><a href="javascript:void(0)" onclick="go('home', '#projects')">Projects</a><a href="javascript:void(0)" onclick="go('home', '#research')">Research</a><a href="javascript:void(0)" onclick="go('home', '#contact')">Contact</a></nav>
+      <nav class="ft-links"><a href="javascript:void(0)" onclick="go('home')">Home</a><a href="javascript:void(0)" onclick="go('home', '#about')">About</a><a href="javascript:void(0)" onclick="go('home', '#skills')">Skills</a><a href="javascript:void(0)" onclick="go('home', '#services')">Services</a><a href="javascript:void(0)" onclick="go('home', '#education')">Education</a><a href="javascript:void(0)" onclick="go('home', '#experience')">Experience</a><a href="javascript:void(0)" onclick="go('home', '#research')">Research</a><a href="javascript:void(0)" onclick="go('home', '#conferences')">Publications</a><a href="javascript:void(0)" onclick="go('home', '#awards')">Awards</a><a href="javascript:void(0)" onclick="go('home', '#projects')">Projects</a><a href="javascript:void(0)" onclick="go('home', '#contact')">Contact</a></nav>
     </div>
     <div>
       <h4 class="ft-h">Connect</h4>
@@ -1136,7 +1491,7 @@
       <text x="62" y="205" font-family="Work Sans, sans-serif" font-size="22" fill="${ink}" fill-opacity=".75">${sub}</text></svg>`;
   }
   const GH = 'https://github.com/sanimmahbub456-creator/';
-  const webOrder = ['project-handstogether','project-bazardor','project-fitlog','project-movie','project-devstack'];
+  const webOrder = ['project-handstogether','project-bazardor','project-fitlog','project-devstack','project-movie'];
   const projects = {
     'project-handstogether': {
       tag: 'Web App · Full Stack', cardTag: 'Next.js · Full Stack',
@@ -1144,13 +1499,13 @@
       subtitle: 'A community platform for organizing and joining local volunteer events',
       short: 'Neighbors create, discover and join social-service events such as cleanups, plantation days and donation drives.',
       media: `<img src="shots/handstogether.jpg" alt="HandsTogether home page" loading="lazy">`,
-      stack: ['Next.js', 'React', 'JavaScript', 'REST API server', 'Vercel'],
+      stack: ['Next.js', 'React', 'TypeScript', 'Express.js', 'MongoDB', 'JWT auth', 'Vercel'],
       description: `HandsTogether lets people start a social-service event with a date, location and details, and lets volunteers join in one click. Upcoming events are listed by how soon they happen, and each organizer gets a dashboard where only they can edit or cancel their own events. Separate pages cover upcoming events, event creation, managing your events and the events you have joined.`,
       challenges: `Keeping the client and the separate server in step was the main work: protected pages for creating and managing events, making sure only the creator can change an event, and keeping the joined-events list correct after someone signs up.`,
       improvements: `Finish the footer links, add search and filters by event type and area, send reminders before an event starts, and show a map of nearby events.`,
       live: 'https://a8-social-events-client.vercel.app', liveLabel: 'Live site',
-      repo: GH + 'A8-social-events-server', repoLabel: 'Server repository',
-      meta: [['Type','Full-stack web app'], ['Hosting','Vercel'], ['Status','Live']]
+      repo: GH + 'A8-social-events-client',
+      meta: [['Type','Full-stack web app'], ['Hosting','Vercel (client), Render (API)'], ['Status','Live']]
     },
     'project-bazardor': {
       tag: 'Web App · Next.js', cardTag: 'Next.js',
@@ -1267,42 +1622,94 @@
       meta: [['Role','GIS analyst'], ['Supervisor','Prof. Dr. Jan-Peter Mund, HNEE'], ['Status','Completed module project'], ['Year','2024']]
     },
     'project-greenspace': {
-      tag: 'Urban GIS · Published Research',
-      title: 'Urban Green-Space Accessibility',
-      subtitle: 'GIS-Based Analysis of the Distribution & Accessibility of Urban Green Space, Dhaka Metropolitan City',
-      media: `<svg viewBox="0 0 800 300" style="background:linear-gradient(135deg,#102418,#1a3a28);"><g stroke="#5b8def" stroke-opacity=".6" fill="none" stroke-width="2">
-                <path d="M60 240 Q250 80 420 220 Q520 140 740 200"/>
-              </g><g fill="#c6f432"><circle cx="60" cy="240" r="7"/><circle cx="250" cy="140" r="7"/><circle cx="420" cy="220" r="7"/><circle cx="560" cy="160" r="7"/><circle cx="740" cy="200" r="7"/></g>
-              <g fill="#d6f96a" opacity=".9"><circle cx="180" cy="90" r="4"/><circle cx="340" cy="60" r="4"/><circle cx="600" cy="85" r="4"/><circle cx="470" cy="50" r="4"/></g></svg>`,
-      stack: ['QGIS', 'Network Analysis', 'Python', 'Spatial Statistics'],
-      description: `A published, peer-reviewed study mapping the distribution of urban green space across Dhaka Metropolitan City and modelling pedestrian-network accessibility to it — co-authored and published in the Journal of Geographic Information System (JGIS).`,
-      challenges: `Incomplete and inconsistent municipal spatial datasets had to be manually reconciled and digitised; defining a fair, comparable accessibility metric across unevenly developed districts required testing several network-distance approaches before settling on one.`,
-      improvements: `Future plans include extending the same network-accessibility method to additional South Asian cities for a comparative study, and publishing the accessibility layer as an interactive public web map.`,
+      tag: 'Peer-reviewed Publication · JGIS 2023',
+      title: 'Urban Green-Space Distribution & Accessibility, Dhaka',
+      subtitle: 'GIS-Based Analysis to Identify the Distribution and Accessibility of Urban Green Space in Dhaka Metropolitan City, Bangladesh',
+      media: `<img src="gis/ugs-accessibility.jpg" alt="UGS accessibility map, Dhaka" style="object-fit:contain;background:#fff">`,
+      gallery: [['ugs-accessibility.jpg','UGS accessibility map: urban green spaces with 500 m buffers over building footprints and thana boundaries, Dhaka']],
+      stack: ['Landsat (30 m)', 'ENVI 5.2', 'ArcGIS 10.3', 'Hybrid Image Classification', 'Buffer Analysis', 'OpenStreetMap', 'Field Survey'],
+      description: `Published in the <b>Journal of Geographic Information System</b>, Vol. 15 No. 1 (February 2023), pp. 35–52 · DOI 10.4236/jgis.2023.151003.<br>
+        Authors: Mohammad Wahidur Khan, Md. Sazzad Hossain, <b>Mahbubul Alam</b> (Technische Universität Dresden).<br><br>
+        The study maps urban green space (UGS) across Dhaka Metropolitan City (~306 km²) from a December 2020 Landsat image, using a hybrid supervised (maximum-likelihood) and unsupervised classification refined in post-classification, and measures accessibility with a 500 m proxy walking distance informed by 84 interviews and 21 focus-group discussions.<br><br>
+        <b>Key results</b><br>
+        • Green space covers only ~602 ha — about 1.9% of the city.<br>
+        • Ramna thana holds the most green space (111 ha) and the highest accessibility (64%); Shyampur the lowest (3.7%).<br>
+        • 79,916 of 401,407 buildings (19.9%) lie within 500 m of green space.<br>
+        • Classification accuracy 93.5% (Kappa 0.87) against 42 ground-truth sites.<br>
+        • Dhaka has ~1,488 acres of green space versus ~6,700 acres needed by the 0.32 acres / 1,000 people standard.`,
+      challenges: `There was no official green-space inventory to validate against, so ground-truth data had to be gathered in the field; many green areas (military, airport, government and institutional land) are not publicly accessible, which had to be considered when interpreting accessibility.`,
+      improvements: `Move from straight-line buffers to pedestrian-network distance, use higher-resolution imagery (Sentinel-2 / PlanetScope) to capture small parks, and set per-thana green-space targets for planners.`,
       live: 'https://doi.org/10.4236/jgis.2023.151003',
       liveLabel: 'Read the published paper (DOI)',
-      repo: 'https://github.com/Mahbubenvit',
-      meta: [['Authors','Khan, M.W., Hossain, M.S. & Alam, M.'], ['Journal','Journal of Geographic Information System'], ['Year','2023'], ['Status','Published']]
+      repo: 'https://www.scirp.org/pdf/jgis_2023021014112367.pdf',
+      repoLabel: 'Full paper (PDF)',
+      meta: [['Authors','Khan, M.W., Hossain, M.S. & Alam, M.'], ['Journal','Journal of Geographic Information System, 15(1), 35–52'], ['Published','13 February 2023'], ['Keywords','Urbanization, Urban Green Space, Accessibility, Proxy Distance'], ['Status','Peer-reviewed · Open access']]
     },
     'project-solar': {
-      tag: 'Suitability Modelling',
-      title: 'Solar Site Suitability Analysis',
-      subtitle: 'Comparative Solar Analysis of Optimal Location for Solar Panel Installation — Białołęka District, Poland',
-      media: `<svg viewBox="0 0 800 300" style="background:linear-gradient(135deg,#241806,#3a2a0c);">
-                <circle cx="400" cy="150" r="100" fill="none" stroke="#c6f432" stroke-opacity=".5" stroke-width="3"/>
-                <circle cx="400" cy="150" r="65" fill="none" stroke="#c6f432" stroke-opacity=".7" stroke-width="3"/>
-                <circle cx="400" cy="150" r="32" fill="#d6f96a" opacity=".9"/>
-                <g stroke="#d6f96a" stroke-width="3">
-                  <line x1="400" y1="15" x2="400" y2="45"/><line x1="400" y1="255" x2="400" y2="285"/>
-                  <line x1="235" y1="150" x2="265" y2="150"/><line x1="535" y1="150" x2="565" y2="150"/>
-                </g></svg>`,
-      stack: ['QGIS', 'Solar Radiation Modelling', 'Multi-criteria Spatial Analysis'],
-      description: `A comparative solar-radiation and multi-criteria suitability analysis was run across the Białołęka district of Poland to rank candidate sites for solar-panel installation, weighing insolation, slope/aspect, land-use and grid-proximity layers.`,
-      challenges: `Reconciling solar-radiation raster outputs with coarser land-use/zoning vector data required careful resampling; weighting the multiple suitability criteria involved sensitivity-testing several scoring schemes before results were stable.`,
-      improvements: `Would like to extend the model with real installation-cost data per site and validate predicted-output rankings against actual performance of any panels later installed.`,
-      live: '',
-      liveLabel: '',
+      tag: 'Solar Modelling',
+      title: 'Comparative Solar Analysis of Optimal Roof Locations',
+      subtitle: 'Roof-level solar potential for panel installation — Białołęka District, Warsaw, Poland',
+      media: `<img src="gis/solar-bialoleka.jpg" alt="Comparative solar analysis map, Białołęka">`,
+      gallery: [['solar-bialoleka.jpg','Three candidate rooftops with modelled solar radiation, panel layout and energy table']],
+      stack: ['QGIS', 'Solar Radiation Modelling', 'Roof Suitability Analysis', 'Cartography'],
+      description: `Solar radiation was modelled over rooftops in the Białołęka district of Warsaw to compare three candidate roofs for solar-panel installation. Usable roof area was translated into panel counts, cost and yearly energy output:<br><br>
+        <b>Location 1</b> — 16 panels · 32 m² · €16,000 · 27 MWh/yr<br>
+        <b>Location 2</b> — 42 panels · 75.18 m² · €42,000 · 36.70 MWh/yr<br>
+        <b>Location 3</b> — 131 panels · 262.49 m² · €131,000 · 114.49 MWh/yr<br>
+        <b>Total</b> — 189 panels · 369.18 m² · €189,000 · <b>165.18 MWh per year</b><br><br>
+        Location 3 offers by far the largest usable area and output, making it the priority installation site.`,
+      challenges: `Separating usable roof surface from shaded or steep sections in the radiation raster, and converting modelled radiation into realistic panel counts and yearly yield.`,
+      improvements: `Add payback-period and CO₂-savings estimates per roof, and extend the method to every building in the district.`,
+      live: '', liveLabel: '',
       repo: 'https://github.com/sanimmahbub456-creator',
-      meta: [['Institution','Warsaw University of Life Sciences, Poland'], ['Programme','Erasmus Semester, Double Degree'], ['Status','Completed module project'], ['Year','2025']]
+      meta: [['Institution','Warsaw University of Life Sciences (SGGW), Poland'], ['Programme','Erasmus Semester, Double Degree'], ['Date','11 June 2025'], ['Status','Completed']]
+    },
+    'project-brodnicki': {
+      tag: 'Network Analysis',
+      title: 'Brodnicki Spatial Mapping & Network Analysis',
+      subtitle: 'Spatial mapping and network analysis of the Brodnicki sub-district, Kuyavian-Pomeranian Region, Poland',
+      media: `<img src="gis/brodnicki-mapping.jpg" alt="Brodnicki sub-district map layout">`,
+      gallery: [['brodnicki-mapping.jpg','Land cover, forest cover, DSM, Natura 2000 and closest-facility route maps']],
+      stack: ['QGIS', 'Corine Land Cover', 'DSM / Terrain Analysis', 'Natura 2000', 'Network Analysis'],
+      description: `A multi-panel atlas of the Brodnicki sub-district combining several analyses:<br><br>
+        <b>Land cover (Corine):</b> agriculture 74%, coniferous forest 12.5%, mixed forest 8%, water 2.5%, deciduous 1.4%, urban 1.1%, wetlands 0.5%.<br>
+        <b>Forest cover:</b> coniferous 57%, mixed 36.6%, deciduous 6.4%.<br>
+        <b>Terrain (DSM):</b> 1,037.29 km², elevation 56–176 m (mean 108.79 m, SD 22.79).<br>
+        <b>Protected areas (Natura 2000):</b> 380.06 km² in total — landscape park 263.76 km², site protection 82.64 km², bird areas 33.66 km².<br>
+        <b>Closest-facility analysis:</b> fastest route to the fire section is 23.76 km, about 26.5 minutes.`,
+      challenges: `Bringing land-cover, elevation, protected-area and road-network data into one consistent projection and building a routable road network for the closest-facility analysis.`,
+      improvements: `Extend the network analysis to service areas (drive-time zones) for every fire station and overlay them on population data.`,
+      live: '', liveLabel: '',
+      repo: 'https://github.com/sanimmahbub456-creator',
+      meta: [['Institution','Warsaw University of Life Sciences (SGGW), Poland'], ['Date','9 May 2025'], ['Status','Completed']]
+    },
+    'project-timber': {
+      tag: 'Site Suitability',
+      title: 'Timber Yard Site Selection near Woroszyły',
+      subtitle: 'Suitable timber yard location near Woroszyły, Poland — multi-criteria GIS suitability analysis',
+      media: `<img src="gis/timber-yard.jpg" alt="Suitable timber yard location map">`,
+      gallery: [['timber-yard.jpg','Final suitability map with the selected timber yard site encircled']],
+      stack: ['QGIS', 'Suitability Analysis', 'Network / Distance Analysis', 'Flood Zoning'],
+      description: `Finding a suitable site for a timber yard near the town of Woroszyły by combining several criteria: the site had to be within a 3,200 m driving distance of Woroszyły, sit on flood-safe ground (elevation of 130 m or more, excluding the lower flood zone), and be reachable from forest, public and local roads. Overlaying these layers left a small set of candidate areas, and the most suitable one is marked on the final map.`,
+      challenges: `Turning road-network driving distance into a usable zone and combining it cleanly with elevation-based flood zones and land-use constraints.`,
+      improvements: `Add weighted criteria (e.g. distance to forest stands, land price) to rank multiple candidate sites instead of a single pass/fail overlay.`,
+      live: '', liveLabel: '',
+      repo: 'https://github.com/sanimmahbub456-creator',
+      meta: [['Institution','Warsaw University of Life Sciences (SGGW), Poland'], ['Date','12 June 2025'], ['Status','Completed']]
+    },
+    'project-gnss': {
+      tag: 'Field Survey',
+      title: 'GNSS Receiver Positional Accuracy Assessment',
+      subtitle: 'Comparing a mobile GNSS receiver with a Stonex receiver under forest canopy — central Poland',
+      media: `<img src="gis/gnss-accuracy.jpg" alt="GNSS positional accuracy poster">`,
+      gallery: [['gnss-accuracy.jpg','Research poster: study area, sample points and canopy cover']],
+      stack: ['GNSS', 'Stonex Receiver', 'Field Survey', 'Accuracy Statistics', 'QGIS'],
+      description: `A field study measuring how accurately a mobile GNSS receiver records positions compared with a professional Stonex receiver. Twenty sample points (1–10 and 11–20) were surveyed in a study area in central Poland, and the canopy cover at each point was recorded to see how tree cover affects positional error.`,
+      challenges: `Collecting consistent readings under dense canopy, where satellite signals are blocked or reflected, and matching each mobile reading to its reference point.`,
+      improvements: `Increase the number of sample points and repeat measurements across seasons (leaf-on vs leaf-off) to model error as a function of canopy density.`,
+      live: '', liveLabel: '',
+      repo: 'https://github.com/sanimmahbub456-creator',
+      meta: [['Institution','Warsaw University of Life Sciences (SGGW), Poland'], ['Type','Field research poster'], ['Status','Completed']]
     }
   };
 
@@ -1364,6 +1771,7 @@
       </div></div>`;
   }).join('');
 
+  function awFilter(k,btn){ document.querySelectorAll('.aw-filter button').forEach(b => b.classList.toggle('on', b === btn)); document.querySelectorAll('.aw-card').forEach(c => c.classList.toggle('hide', k !== 'all' && c.dataset.k !== k)); }
   function openShot(src){ const l = document.getElementById('lightbox'); l.querySelector('img').src = src; l.classList.add('open'); }
   function go(view, scrollToId){
     const home = document.getElementById('home-view');
@@ -1433,6 +1841,7 @@
     btn.textContent = 'Copy';
     btn.onclick = () => copyText(val, btn);
   }
+  window.addEventListener('DOMContentLoaded', () => ['email','phone','wa'].forEach(k => { const b = document.getElementById('b-' + k); if(b) reveal(k, b); }));
   function copyText(text, btn){
     const old = btn.textContent;
     try{
@@ -1536,7 +1945,7 @@
   if('IntersectionObserver' in window){
     if(!reduce){
       const ro = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('reveal-in'); ro.unobserve(e.target); } }), {threshold:.12});
-      document.querySelectorAll('.project-card,.geo-card,.skill-card,.xp-card,.pillar,.tl-item,.stack-group,.ct-row,#cform,.svc-card,.stat').forEach(n => ro.observe(n));
+      document.querySelectorAll('.project-card,.geo-card,.skill-card,.xp-card,.pillar,.tl-item,.stack-group,.ct-row,#cform,.svc-card,.stat,.pub-item,.cty,.aw-card,.conf-card,.cert-strip figure').forEach(n => ro.observe(n));
     }
     if(!reduce){
       const co = new IntersectionObserver(es => es.forEach(e => {
