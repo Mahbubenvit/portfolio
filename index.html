@@ -72,7 +72,7 @@
   nav.links{display:flex; gap:2px; align-items:center;}
   nav.links a{
     font-size:.92rem; padding:9px 14px; border-radius:999px; text-decoration:none;
-    color:var(--ink-dim); transition:.15s;
+    color:var(--ink-dim); transition:.15s; white-space:nowrap;
   }
   nav.links a:hover{color:var(--ink); background:var(--bg-raised);}
   .nav-cta{
@@ -655,6 +655,17 @@
   .btn-primary{position:relative; overflow:hidden;}
   .btn-primary::after{content:""; position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent); transform:skewX(-20deg); transition:left .6s;}
   .btn-primary:hover::after{left:130%;}
+  .hero-actions{gap:10px; flex-wrap:nowrap; container-type:inline-size;}
+  .hero-actions .btn{padding:14px 16px; white-space:nowrap; justify-content:center; min-width:0;}
+  .hero-actions .bl{white-space:nowrap;}
+  @container (max-width:520px){
+    .hero-actions .btn{flex:1 1 auto; padding:13px 8px; font-size:.84rem;}
+    .hero-actions .btn .lg{display:none;}
+  }
+  @container (max-width:300px){
+    .hero-actions .btn{padding:12px 6px; font-size:.84rem;}
+    .hero-actions .btn .hx{display:none;}
+  }
   .spot{background-image:radial-gradient(380px circle at var(--mx,-999px) var(--my,-999px), rgba(198,244,50,.10), transparent 65%);}
   .project-card{transform-style:preserve-3d; will-change:transform;}
   .project-card.tilting{transition:transform .08s linear, border-color .15s;}
@@ -667,6 +678,25 @@
     .hero h1 em, .hero-grid > div:first-child > *, .portrait-wrap, .portrait-ring::before{animation:none;}
     #net{display:none;}
     .section-head h2::after, .ct-h::after{width:72px; transition:none;}
+  }
+
+  /* ===== Responsive & usability polish ===== */
+  .project-card.is-clickable{cursor:pointer;}
+  .project-card.is-clickable:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  .view-more{min-height:40px; padding:8px 0;}
+  @media (max-width:480px){
+    .nav-inner{padding:14px 16px; gap:10px;}
+    .brand{font-size:1.08rem; gap:8px; min-width:0;}
+    .nav-cta{padding:8px 12px; font-size:.82rem; margin-right:8px;}
+    .burger{flex:none;}
+  }
+  @media (max-width:380px){
+    .nav-cta{display:none;}
+    .burger{margin-left:auto;}
+  }
+  @media (max-width:760px){
+    .pm-tag,.zoom,.aw-kind,.pub-type,.lbl,.geo-level,.xp-type,.conf-role,.ring-badge,.copy-btn{font-size:12px;}
+    .project-foot{gap:18px;}
   }
 </style>
 </head>
@@ -685,10 +715,10 @@
       <a href="javascript:void(0)" onclick="go('home','#skills')">Skills</a>
       <a href="javascript:void(0)" onclick="go('home','#education')">Education</a>
       <a href="javascript:void(0)" onclick="go('home','#experience')">Experience</a>
-      <a href="javascript:void(0)" onclick="go('home','#research')">Research</a>
+      <a href="javascript:void(0)" onclick="go('home','#research')">GIS Research</a>
       <a href="javascript:void(0)" onclick="go('home','#conferences')">Publications</a>
       <a href="javascript:void(0)" onclick="go('home','#awards')">Awards</a>
-      <a href="javascript:void(0)" onclick="go('home','#projects')">Projects</a>
+      <a href="javascript:void(0)" onclick="go('home','#projects')">Web Projects</a>
       <a href="javascript:void(0)" onclick="go('home','#contact')">Contact</a>
     </nav>
     <a class="nav-cta" href="Mahbubul_Alam_Resume.pdf" target="_blank" rel="noopener">
@@ -702,11 +732,12 @@
     <a href="javascript:void(0)" onclick="go('home','#skills');document.getElementById('mpanel').classList.remove('open')">Skills</a>
     <a href="javascript:void(0)" onclick="go('home','#education');document.getElementById('mpanel').classList.remove('open')">Education</a>
     <a href="javascript:void(0)" onclick="go('home','#experience');document.getElementById('mpanel').classList.remove('open')">Experience</a>
-    <a href="javascript:void(0)" onclick="go('home','#research');document.getElementById('mpanel').classList.remove('open')">Research</a>
+    <a href="javascript:void(0)" onclick="go('home','#research');document.getElementById('mpanel').classList.remove('open')">GIS Research</a>
     <a href="javascript:void(0)" onclick="go('home','#conferences');document.getElementById('mpanel').classList.remove('open')">Publications</a>
     <a href="javascript:void(0)" onclick="go('home','#awards');document.getElementById('mpanel').classList.remove('open')">Awards</a>
-    <a href="javascript:void(0)" onclick="go('home','#projects');document.getElementById('mpanel').classList.remove('open')">Projects</a>
+    <a href="javascript:void(0)" onclick="go('home','#projects');document.getElementById('mpanel').classList.remove('open')">Web Projects</a>
     <a href="javascript:void(0)" onclick="go('home','#contact');document.getElementById('mpanel').classList.remove('open')">Contact</a>
+    <a href="Mahbubul_Alam_Resume.pdf" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">Resume ↗</a>
   </div>
 </header>
 
@@ -735,8 +766,9 @@
         <p class="designation"><span class="des-label">I'm a</span> <span id="typed">Full Stack Developer</span><span class="caret" aria-hidden="true"></span></p>
         <p class="role">I build full-stack web apps with <strong>TypeScript, React, Next.js and Node.js</strong>, and Python-driven geospatial tools for LiDAR and satellite data. Based in Dresden, Germany.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="Mahbubul_Alam_Resume.pdf" target="_blank" rel="noopener">⬇ View / Download Resume</a>
-          <a class="btn btn-ghost" href="javascript:void(0)" onclick="go('home','#projects')">See Projects</a>
+          <a class="btn btn-primary" href="Mahbubul_Alam_Resume.pdf" target="_blank" rel="noopener"><span class="bl">⬇ <span class="lg">View / Download </span>Resume</span></a>
+          <a class="btn btn-ghost" href="javascript:void(0)" onclick="go('home','#research')"><span class="bl">GIS<span class="hx"> Research</span></span></a>
+          <a class="btn btn-ghost" href="javascript:void(0)" onclick="go('home','#projects')"><span class="bl">Web<span class="hx"> Projects</span></span></a>
         </div>
         <div class="social-row">
           <a class="social-pill" href="https://github.com/Mahbubenvit" target="_blank" rel="noopener" title="GitHub">
@@ -1184,7 +1216,7 @@
     <div class="wrap">
       <div class="section-head">
         <div>
-          <span class="kicker">Research projects</span>
+          <span class="kicker">GIS research</span>
           <h2>Selected geospatial work.</h2>
         </div>
         <p class="section-intro">Nine research projects spanning urban climate, LiDAR forestry, solar and site-suitability modelling, network analysis and GNSS field survey. Open a project for the full write-up.</p>
@@ -1423,7 +1455,7 @@
     <div class="wrap">
       <div class="section-head">
         <div>
-          <span class="kicker">Projects</span>
+          <span class="kicker">Web projects</span>
           <h2>React &amp; JavaScript builds.</h2>
         </div>
         <p class="section-intro">Five deployed web apps, from a volunteer-events platform to a market-price tracker for Bangladesh. Each one is live; open a card for the write-up and links.</p>
@@ -1498,7 +1530,7 @@
     </div>
     <div>
       <h4 class="ft-h">Explore</h4>
-      <nav class="ft-links"><a href="javascript:void(0)" onclick="go('home')">Home</a><a href="javascript:void(0)" onclick="go('home', '#about')">About</a><a href="javascript:void(0)" onclick="go('home', '#skills')">Skills</a><a href="javascript:void(0)" onclick="go('home', '#services')">Services</a><a href="javascript:void(0)" onclick="go('home', '#education')">Education</a><a href="javascript:void(0)" onclick="go('home', '#experience')">Experience</a><a href="javascript:void(0)" onclick="go('home', '#research')">Research</a><a href="javascript:void(0)" onclick="go('home', '#conferences')">Publications</a><a href="javascript:void(0)" onclick="go('home', '#awards')">Awards</a><a href="javascript:void(0)" onclick="go('home', '#projects')">Projects</a><a href="javascript:void(0)" onclick="go('home', '#contact')">Contact</a></nav>
+      <nav class="ft-links"><a href="javascript:void(0)" onclick="go('home')">Home</a><a href="javascript:void(0)" onclick="go('home', '#about')">About</a><a href="javascript:void(0)" onclick="go('home', '#skills')">Skills</a><a href="javascript:void(0)" onclick="go('home', '#services')">Services</a><a href="javascript:void(0)" onclick="go('home', '#education')">Education</a><a href="javascript:void(0)" onclick="go('home', '#experience')">Experience</a><a href="javascript:void(0)" onclick="go('home', '#research')">GIS Research</a><a href="javascript:void(0)" onclick="go('home', '#conferences')">Publications</a><a href="javascript:void(0)" onclick="go('home', '#awards')">Awards</a><a href="javascript:void(0)" onclick="go('home', '#projects')">Web Projects</a><a href="javascript:void(0)" onclick="go('home', '#contact')">Contact</a></nav>
     </div>
     <div>
       <h4 class="ft-h">Connect</h4>
@@ -1996,6 +2028,33 @@
     }), {rootMargin:'-40% 0px -55% 0px'});
     document.querySelectorAll('#home-view section[id]').forEach(n => so.observe(n));
   }
+</script>
+
+<script>
+/* Whole project card opens its details; links and buttons inside keep their own action */
+(function(){
+  function mark(){
+    document.querySelectorAll('.project-card').forEach(function(c){
+      var btn = c.querySelector('button.view-more');
+      if (!btn || c.classList.contains('is-clickable')) return;
+      c.classList.add('is-clickable'); c.setAttribute('tabindex','0'); c.setAttribute('role','link');
+      var t = c.querySelector('h3'); if (t) c.setAttribute('aria-label', t.textContent.trim() + ' – details');
+    });
+  }
+  document.addEventListener('click', function(e){
+    var c = e.target.closest('.project-card.is-clickable');
+    if (!c || e.target.closest('a,button')) return;
+    var btn = c.querySelector('button.view-more'); if (btn) btn.click();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key!=='Enter' && e.key!==' ') return;
+    var c = e.target.closest && e.target.closest('.project-card.is-clickable');
+    if (!c || e.target!==c) return; e.preventDefault();
+    var btn = c.querySelector('button.view-more'); if (btn) btn.click();
+  });
+  if (document.readyState==='loading') document.addEventListener('DOMContentLoaded', mark); else mark();
+  setTimeout(mark, 500);
+})();
 </script>
 </body>
 </html>
